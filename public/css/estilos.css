@@ -1,0 +1,85 @@
+body{
+    background-color: #D5DBDB;
+}
+
+.azulito{
+    background-color: #1B4F72;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+
+
+
+    .flotante {
+        display:scroll;
+            position:fixed;
+            bottom:300px;
+            left:5px;
+            z-index: 3;
+    }
+
+    .circle {
+        width: 50px;
+        height: 50px;
+        background: rgb(246, 156, 85);
+        border-radius: 50%;
+     }
+
+
+
+
+
+.hidden{
+    display: none;
+}
+
+     .tarjeta {
+        cursor: pointer;
+        /* Determinamos la trasicion de los efectos */
+        -webkit-transition: -webkit-transform 0.4s;
+        -moz-transition: -moz-transform 0.4s;
+        -o-transition: -o-transform 0.4s;
+        transition: transform 0.4s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        
+        }
+        
+        /* Determinamos los grados de la rotación de la tarjeta */
+        .tarjeta.flipped {
+        -webkit-transform: rotateY( 180deg );
+        -moz-transform: rotateY( 180deg );
+        -o-transform: rotateY( 180deg );
+        transform: rotateY( 180deg );
+        }
+        
+        /* */
+        .tarjeta .front,
+        .tarjeta .back {
+        display: block;
+        /*visibility hidden para esconder una cara mientras se muestra la otra */
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+        }
+        
+        /*Determinamos los estilos deseados en la cara de atras de la tarjeta*/
+        .tarjeta .back {
+        /* Animacion para rotar la cara trasera */
+        -webkit-transform: rotateY( 180deg );
+        -moz-transform: rotateY( 180deg );
+        -o-transform: rotateY( 180deg );
+        transform: rotateY( 180deg );
+        }
+        
+        /*Determinamos los estilos deseados en la cara de delantera de la tarjeta*/ 
