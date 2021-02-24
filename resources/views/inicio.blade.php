@@ -49,6 +49,9 @@
 
     <div class="row shadow p-3 pt-5 d-flex justify-content-around">
       <div class="col-lg-5 col-md-6  d-flex ">
+        @if ($last!= null)
+            
+       
         <img src="{{Storage::url($last->imagen)}}" class="img-fluid" alt="">
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12">
@@ -60,11 +63,14 @@
         <strong>Objetivo: </strong> {!!$last->objetivo!!}.
   
       </div>
-  
-      <div class="col-12 p-4">
-        <strong>Me describo como:</strong>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consequatur repellendus nulla vitae, impedit suscipit omnis laboriosam similique itaque, est dolorum eligendi voluptates cum labore incidunt unde illum quam quibusdam?</p>
-      </div>
+
+          
+      @else
+        <div class="col-12 text-center">
+          <li class="strong">DEBE REGISTRAR DATOS EN LA BD PAA PODER VISUALIZARLOS AQUI</li>
+        </div>
+      @endif
+
 
     </div>
   </div>
