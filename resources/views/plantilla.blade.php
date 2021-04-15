@@ -19,7 +19,7 @@
 
 </head>
 <body>
-@auth
+
 <div class="container">
   <div class="row d-flex p-0 font-weight-bold justify-content-around">
     <a href="{{route('inicio')}}" class="m-2 card p-2 text-center"><i class="fas fa-home"></i>Inicio</a>
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-@endauth
+
   
     @yield('contenido')
 

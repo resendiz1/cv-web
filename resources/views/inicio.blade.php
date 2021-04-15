@@ -26,21 +26,10 @@
    
       <div class="col-lg-3 col-md-3 col-sm-12 mt-2"><a class="text-white" target="_blank" href="https://api.whatsapp.com/send?phone=522491725430"><i class="fab fa-whatsapp mr-2 h5"></i>249-172-54-30</a></div>  
 
-      @guest
-      <div class="col-12 text-center mt-2"><a class="text-white" target="_blank" href="{{route('login')}}"><i class="fas fa-key mr-2"></i>Login</a></div>    
-      
-      
-      @else
-      <div class="col-12 text-center mt-2"><a class="text-white" target="_blank" href="#" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();" class="text-white"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a></div>   
- 
-      @endguest
+    
     </div>
   </div>
-  
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-    @csrf
-</form>
+
 
 
   <div class="container mt-4 bg-white">
@@ -67,7 +56,7 @@
           
       @else
         <div class="col-12 text-center">
-          <li class="strong">DEBE REGISTRAR DATOS EN LA BD PAA PODER VISUALIZARLOS AQUI</li>
+          <li class="font-weight-bold">Nada por aqui</li>
         </div>
       @endif
 
@@ -189,7 +178,9 @@
           </div>
 
           <div class="col-6 p-0 mt-4 text-center">
+            <a href="tel:522491725430">
             <i class="fa fa-phone fa-3x"></i>
+            </a>
             <h5 class="text-center">249-172-54-30</h5>
           </div>
 
