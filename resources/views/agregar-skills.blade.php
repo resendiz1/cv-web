@@ -1,45 +1,63 @@
 @extends('plantilla')
-
-
-
-
-
 @section('contenido')
     
 
 <div class="container mt-5 ">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12">            
             @if (session('status'))
-            <div class="alert alert-success text-center">{{session('status')}}</div>
-              @endif
-              @if (session('delete'))
-              <div class="alert alert-success text-center">{{session('delete')}}</div>
-                @endif
+            <div class="alert alert-success text-center">
+                {{session('status')}}
+            </div>
+            @endif
+            
+            @if (session('delete'))
+                <div class="alert alert-success text-center">
+                  {{session('delete')}}
+                </div>
+            @endif
 
-              @if (session('edit'))
-              <div class="alert alert-success text-center">{{session('edit')}}</div>
-              @endif
+            @if (session('edit'))
+              <div class="alert alert-success text-center">
+                  {{session('edit')}}
+              </div>
+            @endif
 
             @if (session('icono'))
-            <div class="alert alert-success">  {{ session('icono')}}</div>
-           @endif
+            <div class="alert alert-success">
+                {{ session('icono')}}
+            </div>
+            @endif
 
-           @if (session('datos'))
-           <div class="alert alert-success text-center">{{session('datos')}}</div>
-       @endif
+            @if (session('datos'))
+           <div class="alert alert-success text-center">
+               {{session('datos')}}
+            </div>
+            @endif
 
-       @if ($errors->any())
-
-       {{$errors}}
-           
-       @endif
+            @if ($errors->any())
+                    {{$errors}}
+            @endif
         </div>
     </div>
+</div>
 
+
+<div class="container">
+    <nav class="navbar bg-light">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="" class="nav-link active">Agregar datos personales</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<div class="container">
 <div class="row d-flex justify-content-left">
     <div class="col-3">
-
         <ul class="nav nav-pills mb-3 font-weight-bold card flotante text-center" id="pills-tab" role="tablist">
             <li class="nav-item ">
               <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"

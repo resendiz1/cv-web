@@ -18,6 +18,11 @@ use App\Http\Controllers\proyectosControlller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Ruta que me lleva a los datos generales que voy a editar
+Route::get('edit/{datos}', [datosController::class, 'update'])->name('datos.update');
+
+
+
 
 Route::get('/', function () {
     return view('inicio');
@@ -33,9 +38,17 @@ Route::post('/datos',[datosController::class, 'store'])->name('datos.store');
 Route::post('/skills/proyectos', [proyectosControlller::class, 'store'])->name('proyecto.store');
 Route::get('/',[proyectosControlller::class, 'index'])->name('inicio');
 Route::post('/skills/icono', [iconoController::class, 'store'])->name('icono.store');
+
 Route::get('/skills', [iconoController::class, 'index'])->name('skills');
+
 Route::get('/admin', [adminController::class, 'index'])->name('admin.index');
 Route::post('/admin', [adminController::class, 'delete'])->name(('icono.destroy'));
 Route::post('/admin/proyecto', [proyectosControlller::class, 'delete'])->name('proyecto.delete');
 Route::get('/admin/{proyecto}/editar', [proyectosControlller::class, 'edit'] )->name('proyecto.edit');
 Route::patch('admin/{proyecto}/editar', [proyectosControlller::class, 'update'])->name('proyecto.update');
+
+
+
+
+
+

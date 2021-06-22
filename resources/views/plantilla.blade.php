@@ -21,9 +21,17 @@
 <body>
 
 <div class="container">
-  <div class="row d-flex p-0 font-weight-bold justify-content-around">
-    <a href="{{route('inicio')}}" class="m-2 card p-2 text-center"><i class="fas fa-home"></i>Inicio</a>
-      <a href="{{route('skills')}}" class="m-2 card p-2 text-center text-center"><i class="fas fa-users-cog"></i>Administrar</a>
+  <div class="row d-flex flex-column  pl-3 font-weight-bold justify-content-around flotante2">
+    
+    <a href="{{route('inicio')}}" class="m-2 btn btn-dark btn-sm">
+      <i class="fas fa-home fa-2x"></i>
+    </a>
+    
+    <a href="{{route('skills')}}" class="m-2 btn btn-dark btn-sm">
+      <i class="fa fa-cogs fa-2x"></i>
+    </a>
+
+
   </div>
 </div>
 
@@ -38,8 +46,8 @@
 <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
-<script type="text/javascript" src="js/jquery.richtext.min.js"></script>
-<script type="text/javascript" src="js/datatables.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery.richtext.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('slick/slick.js')}}"></script>
   <script>
 $(function () {

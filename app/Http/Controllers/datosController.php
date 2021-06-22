@@ -9,11 +9,7 @@ class datosController extends Controller
 {
     public function store(){
 
-     
-
-     
-       
-
+    
         request()->validate([
             'nombre' => 'required',
             'titulo' => 'required',
@@ -44,4 +40,11 @@ class datosController extends Controller
 
         return redirect()->route('inicio')->with('datos', 'Datos agregados correctamente');
     }
+
+//Editando los datos que aparecen primero
+    public function update(Dato $datos){
+        return view('datos_edit', compact('datos'));
+    }
+
+
 }
