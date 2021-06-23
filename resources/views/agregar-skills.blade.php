@@ -147,7 +147,7 @@
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-            <div class="card  animated slideInUp">
+            <div class="card">
                 <div class="card-header bg-dark text-white text-center font-weight-bold h4">AGREGAR PROYECTOS</div>
                 <div class="card-body">
 
