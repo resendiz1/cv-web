@@ -78,6 +78,7 @@
     </div>
 
     
+    @auth 
     <div class="col-3 col-lg-1 col-md-2 col-sm-2 col-lg-1 m-1 bg-dark text-center  rounded">
       <a href="{{route('mensajes.index')}}" class="text-white">
         <i class="fa fa-envelope-open-text"></i><br>
@@ -85,6 +86,17 @@
       </a>
     </div>
 
+
+    
+    @else
+    <div class="col-3 col-lg-1 col-md-2 col-sm-2 col-lg-1 m-1 bg-danger text-center  rounded">
+      <a href="{{route('login')}}" class="text-white">
+        <i class="fa fa-key"></i><br>
+        <small>Login</small>
+      </a>
+    </div>
+    @endauth
+    
   </div>
 </div>  
 
@@ -117,25 +129,26 @@
 
 
 
-  <div class="container-fluid mb-5" id="home">
+  <div class="container-fluid" id="home">
     <div class="row d-flex justify-content-around  shadow ">
+      @auth
       <div class="col-12 text-center mt-3">
-          <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
-            <i class="fa fa-table mr-2"></i> 
-             Editar  
-          </a>
-
+        <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
+          <i class="fa fa-table mr-2"></i> 
+          Editar  
+        </a>
+        
         <a href="{{route('datos.create')}}" class="m-2 btn btn-success rounded-pill py-1 px-4">
           <i class="fa fa-plus-square mr-2"></i>  
-            Agregar 
+          Agregar 
         </a>
-  
       </div>
-    
+      @endauth
+      
       @if ($last!= null)                  
 
-      <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12 text-center centradito p-0 mb-3 card bg-white">
-        <div class="bg-white p-lg-3 p-sm-1">
+      <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12 text-center p-0 mb-3 card bg-white">
+        <div class="bg-white p-lg-3 p-3">
           <img src="{{Storage::url($last->imagen)}}" class=" img-fluid" alt="">
         </div>
       </div>
@@ -158,11 +171,17 @@
         <div class="row d-flex justify-content-around">
           
           <div class="col-auto">
-            <strong>Ubicación: </strong>{{$last->ubicacion}}
+            <strong>
+              Ubicación: 
+            </strong>
+              {{$last->ubicacion}}
           </div>
           
           <div class="col-auto">
-            <strong>Lugar de nacimiento: </strong>{{$last->lugar_nacimiento}}
+            <strong>
+              Lugar de nacimiento: 
+            </strong>
+            {{$last->lugar_nacimiento}}
           </div>
 
           <div class="col-auto">
@@ -198,9 +217,12 @@
         <h2 class="font-weight-bold card-header text-center text-white py-0">
           <i class="fa fa-briefcase mr-2"></i>
           Portafolio
-          <a href="{{route('proyecto.create')}}" class="btn btn-secondary p-1 ml-2 btn-sm">
-            <i class="fa fa-plus-square fa-2x"></i>
-          </a>
+        @auth
+        <a href="{{route('proyecto.create')}}" class="btn btn-secondary p-1 ml-2 btn-sm">
+          <i class="fa fa-plus-square fa-2x"></i>
+        </a>
+        @endauth
+        
         </h2>
       </div>
     </div>
@@ -257,23 +279,23 @@
           </div>
         </div>
         
+        @auth
         <div class="card-footer text-justify text-center">
-        
           <a data-toggle="modal" data-target="#b{{$proyectosItem->id}}" class="btn btn-danger px-4 py-1">
-              <i class="fa fa-trash "></i>
-          </a>
-          
+            <i class="fa fa-trash "></i>
+          </a>  
           <a href="{{route('proyectos.update', $proyectosItem->id)}}" class="btn btn-secondary px-4 py-1">
-              <i class="fa fa-table "></i>
+            <i class="fa fa-table "></i>
           </a>
-        
         </div>
+        @endauth
+
       </div>
    
-
+@auth
 <!-- Modal -->
 <div class="modal fade" id="b{{$proyectosItem->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header bg-danger text-white">
@@ -283,8 +305,8 @@ aria-hidden="true">
         </button>
       </div>
       <div class="modal-body">
-      <form action="{{route('proyectos.delete', $proyectosItem->id)}}" method="POST">
-        @csrf
+        <form action="{{route('proyectos.delete', $proyectosItem->id)}}" method="POST">
+          @csrf
           <input type="hidden" name="nombre" value="{{$proyectosItem->nombre}}">
           <h3>
             {{$proyectosItem->nombre}}
@@ -293,12 +315,13 @@ aria-hidden="true">
         <div class="modal-footer">
           <button  class="btn btn-danger">Eliminar</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      </form>
+        </form>
       </div>
     </div>
   </div>
 </div>
 <!-- Modal -->
+@endauth
 
 
 
@@ -318,9 +341,11 @@ aria-hidden="true">
       <h2 class="font-weight-bold card-header text-center text-white py-0">
         <i class="fa fa-briefcase mr-2"></i>
           Habilidades
+        @auth
         <a href="{{route('habilidades.create')}}" class="btn btn-success p-1 ml-2 btn-sm">
           <i class="fa fa-plus-square fa-2x"></i>
         </a>
+        @endauth
       </h2>
     </div>
   </div>
@@ -335,21 +360,29 @@ aria-hidden="true">
             <strong class="text-uppercase">
               {{$skillItem->nombre}}
             </strong>
+            @auth
             <br>
-          <form action="{{route('habilidades.delete', $skillItem->id)}}" method="POST">
-            @csrf
-            <button class="btn btn-sm btn-danger">
-              <i class="fa fa-trash fa-2x"></i>
-            </button>
-          </form>
+            <form action="{{route('habilidades.delete', $skillItem->id)}}" method="POST">
+              @csrf
+              <button class="btn btn-sm btn-danger">
+                <i class="fa fa-trash fa-2x"></i>
+              </button>
+            </form>
+            @endauth
           </div>       
           @empty
             <li class="m-5 font-weight-bold">No hay nada aqui</li>
         @endforelse
         </div>
-          <a href="{{route('iconos.create')}}" class="btn btn-success p-1 bnt-sm">
-            Agregar Iconos
-          </a>
+
+        {{-- Esconde el boton que agrega los iconos --}}
+        @auth
+        <a href="{{route('iconos.create')}}" class="btn btn-success p-1 bnt-sm">
+          Agregar Iconos
+        </a>
+        @endauth
+        {{-- Esconde el boton que agrega los iconos --}}
+
       </div>
     </div>
   </div>
@@ -403,12 +436,27 @@ aria-hidden="true">
           @csrf
           <p class="h4 mb-4">Formaulario de contacto</p>
         
-          <input type="text" id="defaultContactFormName" name="nombre" class="form-control mb-4" placeholder="Nombre">
+          <input 
+            type="text" 
+            id="defaultContactFormName" 
+            name="nombre" 
+            class="form-control mb-4" 
+            placeholder="Nombre">
         
-          <input type="email" id="defaultContactFormEmail" name="correo" class="form-control mb-4" placeholder="E-mail">
+          <input 
+            type="email" 
+            id="defaultContactFormEmail" 
+            name="correo" 
+            class="form-control mb-4" 
+            placeholder="E-mail">
         
           <div class="form-group">
-              <textarea class="form-control rounded-0" name="mensaje" id="exampleFormControlTextarea2" rows="3" placeholder="Mensaje"></textarea>
+              <textarea 
+                class="form-control rounded-0" 
+                name="mensaje" 
+                id="exampleFormControlTextarea2" 
+                rows="3" 
+                placeholder="Mensaje"></textarea>
           </div>
 
           <button class="btn btn-dark btn-block" type="submit">Enviar</button>  

@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\datosController;
 use App\Http\Controllers\iconoController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\skillController;
 use App\Http\Controllers\mensajesController;
 use App\Http\Controllers\proyectosControlller;
@@ -55,6 +57,15 @@ Route::post('/iconos_crear', [iconoController::class, 'store'])->name('iconos.st
 //Rutas de los mensajes
 Route::post('/messages', [mensajesController::class, 'store'])->name('mensaje.store');
 Route::get('/messages', [mensajesController::class, 'index'])->name('mensajes.index');
+
+
+//Rutas de los login
+Route::view('/login', 'login' )->name('login')->middleware('guest');
+
+//Ruta que deberia estraer a un controlador
+Route::post('/login',[loginController::class, 'login'])->name('login');
+Route::post('/', [loginController::class, 'salir'])->name('salir');
+
 
 
 // Route::get('/', function () {

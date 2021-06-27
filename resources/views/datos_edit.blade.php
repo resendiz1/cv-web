@@ -7,7 +7,7 @@
         <div class="col-12 text-center">
             <h4 class="font-weight-bold">Editando</h4>
         </div>
-      <div class="col-lg-4 col-md-8 col-sm-12 text-center centradito p-0 mb-3 card bg-white">
+      <div class="col-lg-4 col-md-8 col-sm-12 text-center  p-0 mb-3 card bg-white">
         <div class="bg-white p-4" id="preview0">
           <img src="{{Storage::url($datos->imagen)}}" class="img-fluid" id="img_tag0" alt="">
         </div>
@@ -35,19 +35,31 @@
                 <div class="form-group">
                     <input 
                         type="text" 
-                        class="form-control form-control-lg font-weight-bold bg-white  border-0 shadow-sm text-center p-4" 
+                        class="form-control form-control-lg font-weight-bold bg-white   shadow-sm text-center p-4 @error('nombre') is-invalid @else border-0 @enderror" 
                         value="{{$datos->nombre}}" 
                         name="nombre"
+                        placeholder="Nombre completo"
                         autofocus>
+                        @error('nombre')
+                            <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
             </div>
             <div class="col-auto">
                 <div class="form-group">
                     <input 
                         type="text" 
-                        class="form-control form-control-lg bg-white border-0 shadow-sm text-center p-4" 
+                        class="form-control form-control-lg bg-white  shadow-sm text-center p-4 @error('titulo') is-invalid @else border-0 @enderror" 
                         value="{{$datos->titulo}}"
-                        name="titulo"    >
+                        placeholder="Nivel de estudios"
+                        name="titulo">
+                        @error('titulo')
+                            <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
             </div>
              
@@ -66,10 +78,15 @@
                         </strong>
                         <input 
                             type="text" 
-                            class="form-control text-center" 
+                            class="form-control text-center @error('ubicacion') is-invalid @else border-0 @enderror" 
                             value="{{$datos->ubicacion}}"
                             name="ubicacion">
                     </label>
+                    @error('ubicacion')
+                    <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-auto">
                     <label for="">
@@ -78,10 +95,15 @@
                         </strong>
                         <input 
                             type="text" 
-                            class="form-control text-center" 
+                            class="form-control text-center @error('nacimiento') is-invalid @else border-0 @enderror " 
                             value="{{$datos->lugar_nacimiento}}"
                             name="nacimiento">
                     </label>
+                    @error('nacimiento')
+                        <div class="alert alert-sm alert-danger p-1 font-weight-bold ">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="col-auto">
@@ -91,10 +113,15 @@
                         </strong>
                         <input 
                             type="text" 
-                            class="form-control text-center" 
+                            class="form-control text-center @error('estado_civil')  is-invalid @else border-0 @enderror" 
                             value="{{$datos->estado_civil}}"
                             name="estado_civil">
                     </label>
+                    @error('estado_civil')
+                        <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="col-12">
@@ -107,7 +134,12 @@
                                 cols="100" 
                                 rows="6"
                                 name="objetivo" 
-                                class="form-control text-start">{{$datos->objetivo}}</textarea>
+                                class="form-control text-start @error('objetivo') is-invalid @else border-0 @enderror">{{$datos->objetivo}}</textarea>
+                            @error('objetivo')
+                                <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                                    {{$message}}
+                                </div>
+                            @enderror
                     </label>
                 </div>
 

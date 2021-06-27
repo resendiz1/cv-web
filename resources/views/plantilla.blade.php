@@ -24,6 +24,16 @@
       <a href="{{route('inicio')}}" class="m-2 btn btn-dark btn-sm">
         <i class="fas fa-home fa-2x"></i>
       </a>
+      @auth
+      <form action="{{route('salir')}}" method="POST">
+        @csrf
+        <a href="#" class="btn btn-danger" onclick="this.closest('form').submit()">
+          <i class="fa fa-door-open"></i>
+          Salir
+        </a>
+      </form>
+      @endauth
+      
     </div>
   </div>
 
