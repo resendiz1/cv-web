@@ -67,6 +67,7 @@ const previa = (inputImg, imgTag, divPreview) => {
     const  imagen = document.getElementById(inputImg),
            imagen_tag = document.getElementById(imgTag),
            preview = document.getElementById(divPreview);
+           
 
     if(imagen && imagen_tag && preview){
         {
@@ -81,6 +82,8 @@ const previa = (inputImg, imgTag, divPreview) => {
                     imagen_tag.src = reader.result;
     
                     preview.innerHTML = '';
+                    //Cambio el color de el contenedor para indicar que la imagen ya esta cargada
+                    preview.style.backgroundColor = "lightgray";
                     preview.append(imagen_tag);
                 };
             })   
@@ -89,15 +92,27 @@ const previa = (inputImg, imgTag, divPreview) => {
 }
 
 const numeroInputs = document.getElementsByClassName('contador');
+        
 
     for(i=0 ; i<numeroInputs.length; i++){
-        const imagen_perfil = 'imagen_perfil'+i,
-              img_tag       = 'img_tag'+i,
-              preview       =  'preview'+i;  
-
-              alert(imagen_perfil + img_tag + preview)
-        previa(imagen_perfil, img_tag, preview)
+      const imagen_perfil = 'imagen_perfil'+i,
+      img_tag       = 'img_tag'+i,
+      preview       =  'preview'+i;  
+              
+      previa(imagen_perfil, img_tag, preview)
               
     }
 
+
+//Poniendo el icono en algun div en el formulario de agregar habilidades
+
+const icono = document.getElementById('select');
+
+  if(icono){
+        
+      icono.addEventListener('change', function(){
+        const contenedor = document.getElementById('previa_icono');
+        contenedor.innerHTML = icono.value;
+      })
+  }
 

@@ -19,7 +19,13 @@
 
 </head>
 <body>
-
+  <div class="container">
+    <div class="row d-flex flex-column  pl-3 font-weight-bold justify-content-around flotante2"> 
+      <a href="{{route('inicio')}}" class="m-2 btn btn-dark btn-sm">
+        <i class="fas fa-home fa-2x"></i>
+      </a>
+    </div>
+  </div>
 
 
   
@@ -36,10 +42,6 @@
 <script type="text/javascript" src="{{asset('js/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('slick/slick.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-  <script>
-
-</script>
-
 
 </body>
 </html>

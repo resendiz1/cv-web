@@ -10,8 +10,8 @@
             </h4>
         </div>
       <div class="col-lg-4 col-md-8 col-sm-12 text-center centradito p-0 mb-3 card bg-white">
-        <div class="bg-white p-4" id="preview">
-          <img  class="img-fluid" id="img_tag" alt="">
+        <div class="bg-white p-4" id="preview0">
+          <img  class="img-fluid" id="img_tag0" alt="">
         </div>
         
       </div>
@@ -25,9 +25,10 @@
                 <div class="file-select" id="src-file1" >
                     <input 
                         type="file" 
-                        id="imagen_perfil" 
+                        id="imagen_perfil0" 
                         name="imagen" 
-                        aria-label="Archivo">
+                        aria-label="Archivo"
+                        class="contador">
                 </div>
                 @error('imagen')
                     <div class="alert alert-sm alert-danger p-0 font-weight-bold">

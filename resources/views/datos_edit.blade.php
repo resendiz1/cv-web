@@ -107,9 +107,7 @@
                                 cols="100" 
                                 rows="6"
                                 name="objetivo" 
-                                class="form-control text-start">
-                                {{$datos->objetivo}}
-                            </textarea>
+                                class="form-control text-start">{{$datos->objetivo}}</textarea>
                     </label>
                 </div>
 

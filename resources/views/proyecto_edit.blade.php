@@ -7,28 +7,38 @@
             <h3 class="text-center m-3 font-weight-bold">Editando proyecto</h3>
         </div>
         <div class="col-8 card p-3">
-        <form action="#" enctype="multipart/form-data" method="POST" >
+        <form action="{{route('proyecto.edit', $proyecto->id)}}" enctype="multipart/form-data" method="POST" >
                 @csrf @method('PATCH')
                 <div class="form-group">
-                    <label for="" class="font-weight-bold h5">
-                        Titulo
-                    </label>
+                        <label for="" class="font-weight-bold h5">
+                            Titulo
+                        </label>
                         <input 
                             type="text" 
-                            class="form-control bg-light shadow-sm p-3 font-weight-bold" 
+                            class="form-control bg-light shadow-sm p-3 font-weight-bold @error('titulo') is-invalid @enderror" 
                             name="titulo" 
                             value="{{$proyecto->nombre}}">
+                                @error('titulo')
+                                    <div class="alert alert-danger alert-sm p-1 font-weight-bold">
+                                        {{$message}}
+                                    </div>
+                                @enderror
                 </div>
-                      <input type="hidden" name="id" >
+
                 <div class="form-group">
                 <label for="" class="font-weight-bold h5">
                       Link de youtube
                 </label>
                    <input 
                         type="text" 
-                        class="form-control bg-light shadow-sm p-3 font-weight-bold" 
-                        name="youtube" 
+                        class="form-control bg-light shadow-sm p-3 font-weight-bold @error('url_youtube') is-invalid @enderror " 
+                        name="url_youtube" 
                         value="{{$proyecto->url_youtube}}"  >
+                        @error('url_youtube')
+                            <div class="alert alert-danger alert-sm p-1">
+                                {{$message}}
+                            </div>
+                        @enderror
                 </div>
                   
                    
@@ -38,9 +48,14 @@
                             </label>
                         <input 
                             type="text" 
-                            name="git" 
-                            class="form-control bg-light shadow-sm p-3 font-weight-bold" 
-                            value="{{$proyecto->url_youtube}}" >
+                            name="url_git" 
+                            class="form-control bg-light shadow-sm p-3 font-weight-bold @error('url_git') is-invalid @enderror" 
+                            value="{{$proyecto->url_youtube}}">
+                            @error('url_git')
+                                <div class="alert alert-sm alert-danger p-1">
+                                    {{$message}}
+                                </div>                                
+                            @enderror
                         </div>
                    
                     
@@ -59,7 +74,7 @@
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12  mt-1 text-center">
                             <div class="row">
                                 <div class="col-12 card p-3" id="preview0">
-                                    <img src="https://picsum.photos/100/100" id="img_tag0" class="img-fluid" alt="">
+                                    <img src="{{Storage::url($proyecto->imagen1)}}" id="img_tag0" class="img-fluid" alt="">
                                 </div>
                             </div>
                             <div class="file-select" id="src-file1" >
@@ -80,7 +95,7 @@
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12 mt-1 text-center">
                             <div class="row">
                                 <div class="col-12 card p-3" id="preview1">
-                                    <img src="https://picsum.photos/100/100" id="img_tag1" class="img-fluid" alt="">
+                                    <img src="{{Storage::url($proyecto->imagen2)}}" id="img_tag1" class="img-fluid" alt="">
                                 </div>
                             </div>
                             
@@ -103,7 +118,7 @@
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12 mt-1 text-center">
                             <div class="row">
                                 <div class="col-12 card p-3" id="preview2">
-                                    <img src="https://picsum.photos/100/100" id="img_tag2" class="img-fluid" alt="">
+                                    <img src="{{Storage::url($proyecto->imagen3)}}" id="img_tag2" class="img-fluid" alt="">
                                 </div>
                             </div>
                                                         
@@ -124,8 +139,14 @@
             
                     </div>
 
-                       <div class="form-group">
-                        <button class="btn btn-success btn-block btn-sm" type="submit"><h6>Guardar</h6></button>
+                       <div class="form-group text-center mt-3">
+                        <button class="btn btn-success p-3 btn-sm" type="submit">
+                            <i class="fa fa-save fa-2x"></i>
+                            <br>
+                            <span>
+                                Guardar
+                            </span>
+                        </button>
                        </div>
                     
                 </form>

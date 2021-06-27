@@ -22,7 +22,6 @@ class datosController extends Controller
             'nacimiento' => 'required',
             'estado_civil' => 'required',
             'objetivo' =>'required',
-            'genero' => 'required',
             'imagen' => 'required'
         ]);
         
@@ -69,32 +68,31 @@ class datosController extends Controller
             
              $imagen = request('imagen')->store('public');
             
-             $datos->update([
-                 'nombre' => request('nombre'),
-                 'titulo' =>request('titulo'),
-                 'ubicacion' =>request('ubicacion'),
-                 'lugar_nacimiento' => request('nacimiento'),
-                 'estado_civil' => request('estado_civil'),
-                 'objetivo' => request('objetivo'),
-                 'imagen' => $imagen
-             ]);
-
-             return redirect()->route('inicio')->with('updated', 'Los datos fueron actualizados');
         }
 
         else{
-            $datos->update([
-                'nombre' => request('nombre'),
-                'titulo' =>request('titulo'),
-                'ubicacion' =>request('ubicacion'),
-                'lugar_nacimiento' => request('nacimiento'),
-                'estado_civil' => request('estado_civil'),
-                'objetivo' => request('objetivo')
-            ]);
 
-            return redirect()->route('inicio')->with('updated', 'Los datos fueron actualizados');
+            $imagen = $datos->imagen;
         }
+        $datos->update([
+            'nombre' => request('nombre'),
+            'titulo' =>request('titulo'),
+            'ubicacion' =>request('ubicacion'),
+            'lugar_nacimiento' => request('nacimiento'),
+            'estado_civil' => request('estado_civil'),
+            'imagen' => $imagen,
+            'objetivo' => request('objetivo')
+        ]);
+
+        return redirect()->route('inicio')->with('updated', 'Los datos fueron actualizados');
     }
+
+
+    public function index(){
+        $last = Dato::all()->last();
+        return view('inicio', compact('last'));
+    }
+
 
 
 }

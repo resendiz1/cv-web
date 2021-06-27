@@ -19,8 +19,10 @@
                                 <label for="" class="font-weight-bold">Titulo</label>
                                 <input 
                                     type="text" 
+                                    value="{{old('titulo')}}"
                                     class="form-control border-0 bg-light p-4 font-weight-bold shadow-sm" 
-                                    name="titulo">
+                                    name="titulo"
+                                    autofocus    >
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -30,8 +32,9 @@
                                 </label>
                                 <input 
                                     type="text" 
+                                    value="{{old('url_youtube')}}"
                                     class="form-control border-0 bg-light p-4 font-weight-bold shadow-sm" 
-                                    name="youtube" >
+                                    name="url_youtube" >
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -39,7 +42,11 @@
                                 <label for="" class="font-weight-bold">
                                     Link de gitHub
                                 </label>
-                                <input type="text" name="git" class="form-control border-0 bg-light p-4 font-weight-bold shadow-sm">
+                                <input 
+                                    type="text" 
+                                    name="url_git"
+                                    value="{{old('url_git')}}" 
+                                    class="form-control border-0 bg-light p-4 font-weight-bold shadow-sm">
                             </div>
                         </div>
                         <div class="col-12">
@@ -51,14 +58,14 @@
                                     cols="30" 
                                     rows="5" 
                                     class="form-control md-textarea border-0 bg-light p-4 font-weight-bold shadow-sm">
-                                </textarea>
+                                {{old('descripcion')}}</textarea>
                             </div>
                         </div>
 
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12  mt-1 text-center">
                             <div class="row">
                                 <div class="col-12 card p-3" id="preview0">
-                                    <img src="https://picsum.photos/100/100" id="img_tag0" class="img-fluid" alt="">
+                                    <img  id="img_tag0" class="img-fluid" alt="">
                                 </div>
                             </div>
                             <div class="file-select" id="src-file1" >
@@ -79,7 +86,7 @@
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12 mt-1 text-center">
                             <div class="row">
                                 <div class="col-12 card p-3" id="preview1">
-                                    <img src="https://picsum.photos/100/100" class="img-fluid" id="img_tag1" alt="">
+                                    <img  class="img-fluid" id="img_tag1" alt="">
                                 </div>
                             </div>
                             <div class="file-select" id="src-file1" >
@@ -100,8 +107,11 @@
 
                         <div class="col-4 col-lg-4 col-md-6 col-sm-12 mt-1 text-center">
                             <div class="row">
-                                
+                                <div class="col-12 card p-3" id="preview2">
+                                    <img  id="img_tag2" class="img-fluid" alt="">
+                                </div>
                             </div>
+                            
                             
                             <div class="file-select" id="src-file1" >
                                 <input 

@@ -25,4 +25,11 @@ class mensajesController extends Controller
 
         return redirect()->route('inicio')->with('status', 'Mensaje enviado');
     }
+
+
+    
+    public function index(){
+        $mensajes = Mensaje::all();
+        return view('mensajes', compact('mensajes'));
+    }
 }

@@ -20,17 +20,27 @@ class iconoController extends Controller
             'nombre' => request('nombre'),
             'icono' => request('icono')
         ]);
-
     
-        return redirect()->route('skills')->with('icono', 'Icono agregado');
+        return redirect()->route('inicio')->with('icono_agregado', 'Icono agregado');
     }
+
+
 
     public function index(){
 
         $iconos =Icono::all();
-        $proyecto = Proyecto::all();
-        $mensajes = Mensaje::all();
-
-       return view('agregar-skills', compact('iconos', 'proyecto', 'mensajes'));
+        return view('habilidades', compact('iconos'));
+    
     }
+
+
+    
+    public function create(){
+        return view('iconos');
+    }
+
+
+
+
+
 }
