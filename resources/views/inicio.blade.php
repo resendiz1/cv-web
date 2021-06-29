@@ -66,14 +66,18 @@
     <div class="col-3 col-lg-1 col-md-2 col-sm-2 m-1  text-center bg-info  rounded">
       <a href="#portafolio" class="text-white ">
           <i class="fa fa-briefcase"></i><br>
-           <strong>Portafolio</strong> 
+            <strong>
+              Portafolio
+            </strong> 
       </a>
     </div>
     
     <div class="col-3 col-lg-1 col-md-2 col-sm-2 col-lg-1 m-1  bg-default text-center  rounded">
       <a href="#skills" class="text-white">
         <i class="fa fa-magic"></i><br>
-        <small>Habilidades</small>
+        <small>
+          Habilidades
+        </small>
       </a>
     </div>
 
@@ -120,23 +124,23 @@
         </div>
     
         <div class="col-4">
-          <a class="text-dark" target="_blank" href="tel:+522491725430">
+          <a class="text-dark"  href="tel:+522491725430">
             <i class="fas fa-phone mr-2 fa-2x"></i>
           </a>
         </div>  
       </div>
   </div>
 
-
-
   <div class="container-fluid" id="home">
     <div class="row d-flex justify-content-around  shadow ">
       @auth
       <div class="col-12 text-center mt-3">
-        <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
-          <i class="fa fa-table mr-2"></i> 
-          Editar  
-        </a>
+        @if ($last!=null)
+          <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
+            <i class="fa fa-table mr-2"></i> 
+            Editar  
+          </a>
+        @endif
         
         <a href="{{route('datos.create')}}" class="m-2 btn btn-success rounded-pill py-1 px-4">
           <i class="fa fa-plus-square mr-2"></i>  

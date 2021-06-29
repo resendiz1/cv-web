@@ -9,7 +9,7 @@
                 Nuevos datos
             </h4>
         </div>
-      <div class="col-lg-4 col-md-8 col-sm-12 text-center centradito p-0 mb-3 card bg-white">
+      <div class="col-lg-4 col-md-8 col-sm-12 text-center p-0 mb-3 card bg-white">
         <div class="bg-white p-4" id="preview0">
           <img  class="img-fluid" id="img_tag0" alt="">
         </div>
@@ -36,7 +36,7 @@
                     </div>
                 @enderror
             </div>
-
+            
             <div class="col-auto">
                 <div class="form-group">
                     <input 
