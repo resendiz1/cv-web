@@ -27,9 +27,8 @@
       @auth
       <form action="{{route('salir')}}" method="POST">
         @csrf
-        <a href="#" class="btn btn-danger" onclick="this.closest('form').submit()">
-          <i class="fa fa-door-open"></i>
-          Salir
+        <a href="#" class="btn btn-danger" tooltip="Salir" onclick="this.closest('form').submit()">
+          <i class="fa fa-door-open fa-2x"></i>
         </a>
       </form>
       @endauth

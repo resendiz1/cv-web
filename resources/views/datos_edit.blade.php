@@ -81,12 +81,12 @@
                             class="form-control text-center @error('ubicacion') is-invalid @else border-0 @enderror" 
                             value="{{$datos->ubicacion}}"
                             name="ubicacion">
-                    </label>
-                    @error('ubicacion')
-                    <div class="alert alert-sm alert-danger p-1 font-weight-bold">
-                        {{$message}}
-                    </div>
-                    @enderror
+                            @error('ubicacion')
+                            <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </label>
                 </div>
                 <div class="col-auto">
                     <label for="">
@@ -98,12 +98,12 @@
                             class="form-control text-center @error('nacimiento') is-invalid @else border-0 @enderror " 
                             value="{{$datos->lugar_nacimiento}}"
                             name="nacimiento">
-                    </label>
-                    @error('nacimiento')
-                        <div class="alert alert-sm alert-danger p-1 font-weight-bold ">
-                            {{$message}}
-                        </div>
-                    @enderror
+                            @error('nacimiento')
+                            <div class="alert alert-sm alert-danger p-1 font-weight-bold ">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </label>
                 </div>
 
                 <div class="col-auto">
@@ -116,11 +116,11 @@
                             class="form-control text-center @error('estado_civil')  is-invalid @else border-0 @enderror" 
                             value="{{$datos->estado_civil}}"
                             name="estado_civil">
-                    </label>
-                    @error('estado_civil')
-                        <div class="alert alert-sm alert-danger p-1 font-weight-bold">
-                            {{$message}}
-                        </div>
+                            @error('estado_civil')
+                            <div class="alert alert-sm alert-danger p-1 font-weight-bold">
+                                {{$message}}
+                            </div>
+                        </label>
                     @enderror
                 </div>
 

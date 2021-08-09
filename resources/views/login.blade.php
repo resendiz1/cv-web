@@ -1,29 +1,34 @@
 @extends('plantilla')
 
 @section('contenido')
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center mt-5">
+    <div class="container mt-5 bg-light">
+        <div class="row d-flex justify-content-center mt-5 border-2 bg-white">
             
             <div class="col-8  text-center">
-                <h2  class="font-weight-bold">Login</h2>
-                    
             </div>
             
-            <div class="col-8 shadow-sm p-5">
+            <div class="col-auto shadow-lg border-0 border-success p-5 ">
+                <h2  class="font-weight-bold text-center">
+                    Login
+                </h2>
                 <form action="#" method="POST">
                     @csrf
                     
                     <div class="form-group px-5">
-                        <label for="" class="font-weight-bold">Usuario</label>
+                        <label for="" class="font-weight-bold h3">Email</label>
                         <input 
-                            type="text" 
+                            type="email" 
                             name="email" 
-                            class="form-control bg-light p-4 shadow-sm border-0 form-control-lg" 
+                            class="form-control bg-light p-4 shadow-sm border-0 form-control-lg"
+                            style="width: 400px" 
                             autofocus>
+                            @error('email')
+                                {{$message}}
+                            @enderror
                     </div>
 
                     <div class="form-group px-5">
-                        <label for="" class="font-weight-bold">Contraseña</label>
+                        <label for="" class="font-weight-bold h3">Contraseña</label>
                         <input 
                             type="password" 
                             name="password" 

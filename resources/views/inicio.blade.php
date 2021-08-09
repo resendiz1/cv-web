@@ -120,7 +120,7 @@
         </div>
     
         <div class="col-4">
-          <a class="text-dark" target="_blank" href="tel:+522491725430">
+          <a class="text-dark"  href="tel:+522491725430">
             <i class="fas fa-phone mr-2 fa-2x"></i>
           </a>
         </div>  
@@ -130,7 +130,7 @@
 
 
   <div class="container-fluid" id="home">
-    <div class="row d-flex justify-content-around  shadow ">
+    <div class="row d-flex justify-content-around  shadow-sm m-5" style="background-color: #f9f9f9">
       @auth
       <div class="col-12 text-center mt-3">
         <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
@@ -211,14 +211,14 @@
 
   <br id="portafolio">
 
-  <div class="container-fluid  bg-white mt-5" >
+  <div class="container-fluid  mt-5" style="background-color: #F9F4F4" >
     <div class="row  d-flex justify-content-center">
       <div class="col-lg-4 col-md-8 col-sm-12 bg-info rounded-pill">
         <h2 class="font-weight-bold card-header text-center text-white py-0">
           <i class="fa fa-briefcase mr-2"></i>
           Portafolio
         @auth
-        <a href="{{route('proyecto.create')}}" class="btn btn-secondary p-1 ml-2 btn-sm">
+        <a href="{{route('proyecto.create')}}" class="btn btn-success p-1 ml-2 btn-sm">
           <i class="fa fa-plus-square fa-2x"></i>
         </a>
         @endauth
@@ -264,7 +264,7 @@
             </a>
           </div>
         
-          <div class="row">
+          <div class="row d-flex justify-content-center">
             
 
             <div class="col-12 mt-4 mb-0 text-start"> 
@@ -274,6 +274,13 @@
               <p class="p-0 m-0">
                  {!!$proyectosItem->descripcion!!}
               </p>
+            </div>
+
+            <div class="col-6 text-center">
+              <a href="{{$proyectosItem->url_git}}" target="_blank" class="btn btn-black btn-sm">GitHub</a>
+            </div>
+            <div class="col-6 text-center">
+              <a href="{{$proyectosItem->url_youtube}}" class="btn btn-danger btn-sm">Youtube</a>
             </div>
           
           </div>
@@ -371,7 +378,9 @@
             @endauth
           </div>       
           @empty
-            <li class="m-5 font-weight-bold">No hay nada aqui</li>
+            <li class="m-5 font-weight-bold text-center">░
+               No hay nada aqui
+            </li>
         @endforelse
         </div>
 
@@ -394,7 +403,7 @@
   <br>
   <br>
 
-  <div class="container-fluid mt-5 bg-white">
+  <div class="container-fluid mt-5" style="background-color: #f9f9f9">
     <div class="row p-4 mt-5">
       <div class="col-lg-6 col-ms-12 p-5">
         <div class="row d-flex justify-content-center">

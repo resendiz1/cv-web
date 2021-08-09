@@ -25,6 +25,8 @@ class loginController extends Controller
 
     public function salir(){
         Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
         return redirect()->route('inicio');        
     }
 }
