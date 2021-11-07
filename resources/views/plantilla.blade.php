@@ -20,14 +20,14 @@
 </head>
 <body>
   <div class="container">
-    <div class="row d-flex flex-column  pl-3 font-weight-bold justify-content-around flotante2"> 
+    <div class="row d-flex flex-column font-weight-bold justify-content-around flotante2"> 
       <a href="{{route('inicio')}}" class="m-2 btn btn-dark btn-sm">
         <i class="fas fa-home fa-2x"></i>
       </a>
       @auth
       <form action="{{route('salir')}}" method="POST">
         @csrf
-        <a href="#" class="btn btn-danger" tooltip="Salir" onclick="this.closest('form').submit()">
+        <a href="#" class="btn btn-danger btn-sm" tooltip="Salir" onclick="this.closest('form').submit()">
           <i class="fa fa-door-open fa-2x"></i>
         </a>
       </form>

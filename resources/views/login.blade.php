@@ -19,7 +19,7 @@
                         <input 
                             type="email" 
                             name="email" 
-                            class="form-control bg-light p-4 shadow-sm border-0 form-control-lg"
+                            class="form-control bg-light shadow-sm border-0"
                             style="width: 400px" 
                             autofocus>
                             @error('email')
@@ -32,7 +32,7 @@
                         <input 
                             type="password" 
                             name="password" 
-                            class="form-control bg-light p-4 shadow-sm border-0 form-control-lg">
+                            class="form-control bg-light shadow-sm border-0 ">
                     </div>
 
                     <div class="form-group text-center">

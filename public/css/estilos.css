@@ -2,7 +2,9 @@ html{
     scroll-behavior: smooth;
 }
 
-
+.contador{
+    cursor:pointer;
+}
 
 .file-select {          
     position: relative;
@@ -65,7 +67,7 @@ html{
     .flotante3{
             display:scroll;
             position:fixed;
-            top:80px;
+            top:55px;
             left:10px;
             z-index: 3;
     }

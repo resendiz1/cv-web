@@ -68,6 +68,16 @@ Route::post('/', [loginController::class, 'salir'])->name('salir');
 
 
 
+
+
+//Ruta de los pdf
+Route::get('/pdf', function(){
+    $pdf = PDF::loadView('inicio');
+    return $pdf->stream();
+});
+
+
+
 // Route::get('/', function () {
 //     return view('inicio');
 // })->name('inicio');

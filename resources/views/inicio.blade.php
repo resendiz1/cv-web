@@ -136,15 +136,14 @@
       @auth
       <div class="col-12 text-center mt-3">
         @if ($last!=null)
-          <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-1 px-4">
+          <a href="{{route('datos.update', $last->id )}}" class="m-2 btn btn-default rounded-pill py-0 px-4">
             <i class="fa fa-table mr-2"></i> 
             Editar  
           </a>
         @endif
-        
-        <a href="{{route('datos.create')}}" class="m-2 btn btn-success rounded-pill py-1 px-4">
-          <i class="fa fa-plus-square mr-2"></i>  
-          Agregar 
+        <br>
+        <a href="{{route('datos.create')}}">  
+          Agregar datos personales
         </a>
       </div>
       @endauth
@@ -204,7 +203,9 @@
           
       @else
         <div class="col-12 text-center">
-          <h2>Nada para ver</h2>
+          <strong class="italic">
+            Base de datos vacia
+          </strong>
         </div>
       @endif
     </div>
@@ -216,18 +217,16 @@
   <br id="portafolio">
 
   <div class="container-fluid  mt-5" style="background-color: #F9F4F4" >
-    <div class="row  d-flex justify-content-center">
-      <div class="col-lg-4 col-md-8 col-sm-12 bg-info rounded-pill">
-        <h2 class="font-weight-bold card-header text-center text-white py-0">
-          <i class="fa fa-briefcase mr-2"></i>
-          Portafolio
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-8 col-sm-12 text-center">
+          <h2 class="font-weight-bold my-0">
+            Portafolio
+          </h2>
         @auth
-        <a href="{{route('proyecto.create')}}" class="btn btn-success p-1 ml-2 btn-sm">
-          <i class="fa fa-plus-square fa-2x"></i>
+        <a href="{{route('proyecto.create')}}" class=" ml-2">
+          Agregar proyecto al protafolio
         </a>
         @endauth
-        
-        </h2>
       </div>
     </div>
   
@@ -338,26 +337,28 @@
 
       </div>
           @empty
-            <li class="m-4 font-weight-bold">Nada por aqui</li> 
+            <strong>
+              Portafolio vacio
+            </strong> 
           @endforelse
         </div>  
       </div>
 
 
 <br id="skills">
-<div class="container bg-white mt-5">
+<div class="container-fluid bg-white mt-5">
   
   <div class="row  d-flex justify-content-center mb-3">
-    <div class="col-lg-4 col-md-8 col-sm-12 bg-default rounded-pill">
-      <h2 class="font-weight-bold card-header text-center text-white py-0">
-        <i class="fa fa-briefcase mr-2"></i>
+    <div class="col-lg-4 col-md-8 col-sm-12 text-center">
+      <h2 class="font-weight-bold  text-center  py-0">
           Habilidades
+        </h2>
         @auth
-        <a href="{{route('habilidades.create')}}" class="btn btn-success p-1 ml-2 btn-sm">
-          <i class="fa fa-plus-square fa-2x"></i>
+        <a href="{{route('habilidades.create')}}">
+          Agregar habilidad nueva
         </a>
         @endauth
-      </h2>
+     
     </div>
   </div>
 
@@ -382,15 +383,16 @@
             @endauth
           </div>       
           @empty
-            <li class="m-5 font-weight-bold text-center">░
-               No hay nada aqui
+            <li class="font-weight-bold text-center">
+              Base de datos vacia
             </li>
         @endforelse
         </div>
 
         {{-- Esconde el boton que agrega los iconos --}}
         @auth
-        <a href="{{route('iconos.create')}}" class="btn btn-success p-1 bnt-sm">
+        <a href="{{route('iconos.create')}}" class="p-1 bnt-sm text-center">
+          <i class="fa fa-plus"></i>
           Agregar Iconos
         </a>
         @endauth
